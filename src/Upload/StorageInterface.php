@@ -30,6 +30,7 @@
  */
 namespace Upload;
 
+use Exception;
 use \Upload\FileInfoInterface;
 /**
  * Storage Interface
@@ -47,7 +48,7 @@ interface StorageInterface
      * to its intended destination. If upload fails, an exception should be thrown.
      *
      * @param  FileInfoInterface $fileInfo
-     * @throws \Exception                If upload fails
+     * @throws Exception                If upload fails
      */
     public function upload(FileInfoInterface $fileInfo);
 }

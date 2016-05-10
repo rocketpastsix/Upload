@@ -30,6 +30,7 @@
  */
 namespace Upload\Validation;
 
+use Upload\ValidationInterface;
 /**
  * Validate Upload Media Type
  *
@@ -39,7 +40,7 @@ namespace Upload\Validation;
  * @since   1.0.0
  * @package Upload
  */
-class Mimetype implements \Upload\ValidationInterface
+class Mimetype implements ValidationInterface
 {
     /**
      * Valid media types

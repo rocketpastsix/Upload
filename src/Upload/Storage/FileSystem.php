@@ -29,6 +29,8 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 namespace Upload\Storage;
+use Upload\FileInfoInterface;
+use Upload\StorageInterface;
 
 /**
  * FileSystem Storage
@@ -39,7 +41,7 @@ namespace Upload\Storage;
  * @since   1.0.0
  * @package Upload
  */
-class FileSystem implements \Upload\StorageInterface
+class FileSystem implements StorageInterface
 {
     /**
      * Path to upload destination directory (with trailing slash)
@@ -80,7 +82,7 @@ class FileSystem implements \Upload\StorageInterface
      * @throws \Upload\Exception               If overwrite is false and file already exists
      * @throws \Upload\Exception               If error moving file to destination
      */
-    public function upload(\Upload\FileInfoInterface $fileInfo)
+    public function upload(FileInfoInterface $fileInfo)
     {
         $destinationFile = $this->directory . $fileInfo->getNameWithExtension();
         if ($this->overwrite === false && file_exists($destinationFile) === true) {
