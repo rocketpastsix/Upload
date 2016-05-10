@@ -30,6 +30,8 @@
  */
 namespace Upload;
 
+use \Upload\FileInfoInterface;
+
 /**
  * Validation Interface
  *
@@ -48,5 +50,5 @@ interface ValidationInterface
      * @param  \Upload\FileInfoInterface $fileInfo
      * @throws \Exception                If validation fails
      */
-    public function validate(\Upload\FileInfoInterface $fileInfo);
+    public function validate(FileInfoInterface $fileInfo);
 }
