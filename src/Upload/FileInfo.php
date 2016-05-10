@@ -29,6 +29,8 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 namespace Upload;
+use SplFileInfo;
+use Upload\FileInfoInterface;
 
 /**
  * File Information
@@ -37,7 +39,7 @@ namespace Upload;
  * @since   2.0.0
  * @package Upload
  */
-class FileInfo extends \SplFileInfo implements \Upload\FileInfoInterface
+class FileInfo extends SplFileInfo implements FileInfoInterface
 {
     /**
      * Factory method that returns new instance of \FileInfoInterface
@@ -141,7 +143,7 @@ class FileInfo extends \SplFileInfo implements \Upload\FileInfoInterface
      */
     public function getMimetype()
     {
-        if (isset($this->mimetype) === false) {
+        if (!isset($this->mimetype)) {
             $finfo = new \finfo(FILEINFO_MIME);
             $mimetype = $finfo->file($this->getPathname());
             $mimetypeParts = preg_split('/\s*[;,]\s*/', $mimetype);
@@ -202,7 +204,7 @@ class FileInfo extends \SplFileInfo implements \Upload\FileInfoInterface
     public static function createFromFactory($tmpName, $name = null) {
         if (isset(static::$factory) === true) {
             $result = call_user_func_array(static::$factory, array($tmpName, $name));
-            if ($result instanceof \Upload\FileInfoInterface === false) {
+            if ($result instanceof FileInfoInterface === false) {
                 throw new \RuntimeException('FileInfo factory must return instance of \Upload\FileInfoInterface.');
             }
 
