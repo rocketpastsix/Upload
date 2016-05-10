@@ -30,6 +30,7 @@
  */
 namespace Upload;
 
+use \Upload\FileInfoInterface;
 /**
  * Storage Interface
  *
@@ -45,8 +46,8 @@ interface StorageInterface
      * This method is responsible for uploading an `\Upload\FileInfoInterface` instance
      * to its intended destination. If upload fails, an exception should be thrown.
      *
-     * @param  \Upload\FileInfoInterface $fileInfo
+     * @param  FileInfoInterface $fileInfo
      * @throws \Exception                If upload fails
      */
-    public function upload(\Upload\FileInfoInterface $fileInfo);
+    public function upload(FileInfoInterface $fileInfo);
 }
