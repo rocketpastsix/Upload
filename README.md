@@ -1,6 +1,6 @@
 # Upload
 
-[![Travis](https://img.shields.io/travis/rust-lang/rust.svg?maxAge=2592000)](https://github.com/rocketpastsix/Upload)
+[![Build Status](https://img.shields.io/travis/rocketpastsix/Upload.svg?style=flat-square)](https://travis-ci.org/rocketpastsix/Upload)
 
 This component simplifies file validation and uploading.
 
